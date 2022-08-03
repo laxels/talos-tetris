@@ -2,9 +2,12 @@ import produce from 'immer';
 import {Block} from '.';
 import {getPossibleCoordsForBlock} from './blocks';
 
-export type Color = `red` | `blue` | `gray`;
+const COLORS = [`red`, `blue`] as const;
+export type Color = typeof COLORS[number];
+
 type Cell = Color | null;
 type PartialGrid = Cell[][];
+
 export type Coord = [number, number];
 
 export function makeBlankGrid(width: number, height: number): PartialGrid {
@@ -103,12 +106,7 @@ function fillGrid(
 }
 
 function getNextColor(prevColor: Color): Color {
-  switch (prevColor) {
-    case `red`:
-      return `blue`;
-    case `blue`:
-      return `red`;
-    default:
-      return `gray`;
-  }
+  const i = COLORS.indexOf(prevColor);
+  const newI = (i + 1) % COLORS.length;
+  return COLORS[newI];
 }

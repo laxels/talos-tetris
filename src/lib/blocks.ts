@@ -1,6 +1,7 @@
 import {Coord} from '.';
 
-export type Block = `L` | `S` | `J` | `I` | `Z` | `O` | `T`;
+export const BLOCKS = [`L`, `S`, `J`, `I`, `Z`, `O`, `T`] as const;
+export type Block = typeof BLOCKS[number];
 
 type BlockCoords = [Coord, Coord, Coord, Coord];
 
