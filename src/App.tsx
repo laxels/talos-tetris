@@ -11,7 +11,7 @@ const BLOCKS: Block[] = [`L`, `L`];
 const App: FC = memo(() => {
   return (
     <S.App>
-      <Grid width={GRID_WIDTH} height={GRID_HEIGHT} />
+      <Grid width={GRID_WIDTH} height={GRID_HEIGHT} blocks={BLOCKS} />
     </S.App>
   );
 });

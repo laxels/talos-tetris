@@ -1,6 +1,7 @@
+import {Coord} from '.';
+
 export type Block = `L` | `S` | `J` | `I` | `Z` | `O` | `T`;
 
-type Coord = [number, number];
 type BlockCoords = [Coord, Coord, Coord, Coord];
 
 export function getPossibleCoordsForBlock(b: Block): BlockCoords[] {
